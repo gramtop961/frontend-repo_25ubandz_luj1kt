@@ -1,28 +1,57 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import CaseStudies from './components/CaseStudies';
+import ContactCTA from './components/ContactCTA';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-950 text-white">
+      {/* Top navigation */}
+      <header className="sticky top-0 z-40 border-b border-white/10 backdrop-blur bg-neutral-950/70">
+        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2">
+            <span className="inline-block h-6 w-6 rounded-md bg-gradient-to-br from-violet-500 to-sky-400" />
+            <span className="font-semibold tracking-tight">Flames AI Agency</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
+            <a className="hover:text-white" href="#services">Services</a>
+            <a className="hover:text-white" href="#work">Work</a>
+            <a className="hover:text-white" href="#contact">Contact</a>
+            <a
+              href="#contact"
+              className="ml-2 inline-flex items-center justify-center rounded-md bg-violet-500 hover:bg-violet-400 transition-colors text-white px-4 py-2 font-medium"
+            >
+              Get started
+            </a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      {/* Sections */}
+      <main>
+        <Hero />
+        <Services />
+        <CaseStudies />
+        <ContactCTA />
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-neutral-950">
+        <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
+          <div className="flex items-center gap-2">
+            <span className="inline-block h-5 w-5 rounded-md bg-gradient-to-br from-violet-500 to-sky-400" />
+            <span>© {new Date().getFullYear()} Flames AI Agency. All rights reserved.</span>
+          </div>
+          <div className="flex items-center gap-5">
+            <a href="#services" className="hover:text-white">Services</a>
+            <a href="#work" className="hover:text-white">Work</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
